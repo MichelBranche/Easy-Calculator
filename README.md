@@ -3,6 +3,10 @@
 Calcolatrice web minimale in stile Apple-like, costruita con **HTML + CSS + JavaScript**.  
 Supporta **mouse**, **tastiera** e include un **toggle Light/Dark** basato su CSS variables (con persistenza in `localStorage`).
 
+![Easy Calculator - Light Theme](assets/screen-light.jpg)
+![Easy Calculator - Light Theme](assets/screen-dark.jpg)
+
+
 ## Live Demo (GitHub Pages)
 
 [Apri la demo](https://michelbranche.github.io/Easy-Calculator/)
