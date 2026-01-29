@@ -1,0 +1,42 @@
+/*
+  theme-light.css
+  Tema chiaro (Minimal Apple-like)
+  Qui metto SOLO variabili, niente regole strutturali.
+*/
+:root {
+  --bg: #f5f5f7;
+
+  --bgSpot1: rgba(255, 81, 0, 0.195);
+  --bgSpot2: rgba(236, 6, 48, 0.297);
+
+  --card: #ffffff;
+  --surface: #fbfbfc;
+
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+
+  --border: rgba(0, 0, 0, 0.675);
+  --borderStrong: rgba(0, 0, 0, 0.12);
+
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.167);
+
+  --btnBg: #ffffff;
+  --btnHover: #f7f7f8;
+  --btnShadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+
+  --primary: #007aff;
+  --primarySoft: rgba(0, 122, 255, 0.12);
+
+  --success: #34c759;
+  --successSoft: rgba(52, 199, 89, 0.14);
+
+  --opBg: var(--primarySoft);
+  --opBorder: rgba(0, 122, 255, 0.22);
+  --opText: #003d7a;
+
+  --eqBg: var(--successSoft);
+  --eqBorder: rgba(52, 199, 89, 0.25);
+  --eqText: #0b5a21;
+
+  --focusRing: rgba(0, 122, 255, 0.35);
+}

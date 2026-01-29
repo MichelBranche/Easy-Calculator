@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!--
+      STEP 1: HEAD
+      - charset e viewport per compatibilità e responsive
+      - collego prima base.css (struttura) e poi il tema (solo colori)
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcolatrice</title>
+
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="theme-light.css" id="theme" />
+  </head>
+
+  <body>
+    <!--
+      STEP 2: CONTENITORE PRINCIPALE
+      wrap controlla la larghezza massima.
+    -->
+    <main class="wrap">
+      <!--
+        STEP 3: SEZIONE CALCOLATRICE
+      -->
+      <section class="calc" aria-label="Calcolatrice">
+        <!--
+          STEP 3.1: TOPBAR
+          Metto un piccolo header con titolo e bottone tema.
+          aria-pressed lo gestisco via JS per accessibilità.
+        -->
+        <div class="topbar">
+          <div class="title">Calcolatrice</div>
+          <button class="themeBtn" id="themeToggle" type="button" aria-pressed="false">
+            Chiaro
+          </button>
+        </div>
+
+        <!--
+          STEP 4: DISPLAY
+          prev = riga piccola (numero precedente + operatore)
+          curr = riga grande (numero corrente o risultato)
+        -->
+        <div class="display" aria-live="polite" aria-atomic="true">
+          <div class="display__prev" id="prev"></div>
+          <div class="display__curr" id="curr">0</div>
+        </div>
+
+        <!--
+          STEP 5: TASTIERA
+          id="keys" mi serve per event delegation:
+          un solo addEventListener sul contenitore.
+        -->
+        <div class="keys" id="keys">
+          <button class="key key--wide" data-clear aria-label="Cancella tutto">C</button>
+          <button class="key" data-backspace aria-label="Cancella ultimo">⌫</button>
+          <button class="key key--op" data-operator="/" aria-label="Dividi">/</button>
+
+          <button class="key" data-number="7">7</button>
+          <button class="key" data-number="8">8</button>
+          <button class="key" data-number="9">9</button>
+          <button class="key key--op" data-operator="*" aria-label="Moltiplica">*</button>
+
+          <button class="key" data-number="4">4</button>
+          <button class="key" data-number="5">5</button>
+          <button class="key" data-number="6">6</button>
+          <button class="key key--op" data-operator="-" aria-label="Sottrai">-</button>
+
+          <button class="key" data-number="1">1</button>
+          <button class="key" data-number="2">2</button>
+          <button class="key" data-number="3">3</button>
+          <button class="key key--op" data-operator="+" aria-label="Somma">+</button>
+
+          <button class="key key--wide" data-number="0">0</button>
+          <button class="key" data-decimal aria-label="Virgola decimale">.</button>
+          <button class="key key--equals" data-equals aria-label="Risultato">=</button>
+        </div>
+
+        <p class="hint">
+          Tip: puoi usare anche la tastiera (0-9, +, -, *, /, Invio, Backspace, Esc).
+        </p>
+      </section>
+    </main>
+
+    <!--
+      STEP 6: SCRIPT IN FONDO
+      Così il DOM è già caricato quando lo JS cerca prev, curr, keys, themeToggle.
+    -->
+    <script src="script.js"></script>
+  </body>
+</html>

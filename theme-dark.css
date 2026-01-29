@@ -1,0 +1,42 @@
+/*
+  theme-dark.css
+  Tema scuro (pulito e coerente, non neon)
+  Solo variabili.
+*/
+:root {
+  --bg: #0b0b0f;
+
+  --bgSpot1: rgba(255, 128, 10, 0.16);
+  --bgSpot2: rgba(48, 209, 88, 0.10);
+
+  --card: #14141a;
+  --surface: #101015;
+
+  --text: #f5f5f7;
+  --muted: rgba(245, 245, 247, 0.62);
+
+  --border: rgba(255, 255, 255, 0.10);
+  --borderStrong: rgba(255, 255, 255, 0.16);
+
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+  --btnBg: rgba(255, 255, 255, 0.06);
+  --btnHover: rgba(255, 255, 255, 0.10);
+  --btnShadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+
+  --primary: #ff910a;
+  --primarySoft: rgba(255, 67, 10, 0.18);
+
+  --success: #30d158;
+  --successSoft: rgba(48, 209, 88, 0.18);
+
+  --opBg: var(--primarySoft);
+  --opBorder: rgba(10, 132, 255, 0.35);
+  --opText: #cfe6ff;
+
+  --eqBg: var(--successSoft);
+  --eqBorder: rgba(48, 209, 88, 0.35);
+  --eqText: #c9f7d6;
+
+  --focusRing: rgba(10, 132, 255, 0.45);
+}
