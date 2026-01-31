@@ -1,80 +1,54 @@
-# Easy Calculator
+# Portfolio  -  Michel Branche
 
-Calcolatrice web minimale, costruita con **HTML + CSS + JavaScript**.  
-Supporta **mouse**, **tastiera** e include un **toggle Light/Dark** basato su CSS variables (con persistenza in `localStorage`).
+Portfolio personale con una selezione di progetti front-end.  
+Focus su **UI moderna**, **responsive design** e componenti riutilizzabili.
 
-![Easy Calculator - Light Theme](assets/screen-light.jpg)
-![Easy Calculator - Light Theme](assets/screen-dark.jpg)
+## 🔗 Live Website
+- Website: https://michelbranche.github.io/portfolio/
 
-
-## Live Demo (GitHub Pages)
-
-[Apri la demo](https://michelbranche.github.io/Easy-Calculator/)
-
-
-## Features
-
-- Operazioni base: **+ / - / * / /**
-- **Decimali**
-- **C** (clear) e **backspace** (cancella ultimo carattere)
-- Supporto tastiera:
-  - Numeri `0-9`
-  - Operatori `+ - * /`
-  - `.` per decimali
-  - `Enter` o `=` per calcolare
-  - `Backspace` per cancellare un carattere
-  - `Esc` per reset
-- UI responsive, pulita, con focus ring per accessibilità
-- Tema **Light/Dark** con file dedicati e variabili CSS
-
-## Tech Stack
-
+## 🧰 Tech Stack
 - HTML5
-- CSS3 (Grid + variabili CSS)
-- JavaScript (DOM, event delegation, localStorage)
+- CSS3
+- JavaScript (base)
 
-## Struttura del progetto
+## 📌 Progetti
+- **Masonry Gallery (Pinterest-style)**
+  - Live: https://michelbranche.github.io/masonry-gallery/
+  - Code: https://github.com/MichelBranche/masonry-gallery
 
-- `index.html`  
-  Struttura della calcolatrice (display + griglia tasti) e bottone tema.
+- **Landing Page**
+  - Live: https://michelbranche.github.io/landing-page/
+  - Code: https://github.com/MichelBranche/landing-page
 
-- `script.js`  
-  Contiene:
-  - logica calcolatrice (stato, input, compute)
-  - gestione tastiera
-  - toggle tema (cambio file CSS + salvataggio preferenza)
+- **UI Layout**
+  - Live: https://michelbranche.github.io/ui-layout/
+  - Code: https://github.com/MichelBranche/ui-layout
 
-- `base.css`  
-  Tutto il layout e lo stile dei componenti (card, display, tasti).  
-  Qui NON ci sono colori hardcoded: prende tutto dalle variabili.
+- **Easy Calculator**
+  - Live: https://michelbranche.github.io/Easy-Calculator/
+  - Code: https://github.com/MichelBranche/Easy-Calculator
 
-- `theme-light.css`  
-  Solo variabili colore per il tema chiaro.
+- **Esempi per attività** (demo rapide: B&B, Caffè, Hotel, Ristorante)
+  - IT: https://michelbranche.github.io/portfolio/examples.html
+  - EN: https://michelbranche.github.io/portfolio/examples-en.html
 
-- `theme-dark.css`  
-  Solo variabili colore per il tema scuro.
-  
+> Aggiungerò altri progetti man mano che procedo con lo studio e con il mio percorso da frontend developer.
 
-## Come funziona il tema (Light/Dark)
+## 📸 Preview
 
-Il progetto usa due file tema separati (light e dark) che definiscono solo le variabili CSS.  
-Quando premi il bottone “Tema”, JavaScript cambia l’`href` del link:
+![Portfolio Preview](assets/images/portfolio-preview1.jpg)
 
-- `theme-light.css`
-- `theme-dark.css`
-
-La scelta viene salvata in `localStorage`, così al refresh rimane.
-
-## Note di implementazione
-
-- **Event delegation**: un solo listener sul contenitore dei tasti, invece di un listener per ogni bottone.
-- **Stato chiaro**: `current`, `previous`, `operation`.
-- **Accessibilità**: `aria-live` nel display e focus ring visibile con tastiera.
+![Portfolio Preview2](assets/images/portfolio-preview2.jpg)
 
 
-
-## Autore
-
-Michel Branche  
-GitHub: https://github.com/MichelBranche
-
+## 📂 Struttura
+```txt
+portfolio/
+  index.html
+  style.css
+  masonry-gallery.html
+  assets/
+    images/
+      michel.jpg
+      masonry-thumb.jpg
+      portfolio-preview.jpg

@@ -1,91 +1,228 @@
-<!doctype html>
-<html lang="it">
-  <head>
-    <!--
-      STEP 1: HEAD
-      - charset e viewport per compatibilità e responsive
-      - collego prima base.css (struttura) e poi il tema (solo colori)
-    -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calcolatrice</title>
+<!DOCTYPE html>
 
-    <link rel="stylesheet" href="base.css" />
-    <link rel="stylesheet" href="theme-light.css" id="theme" />
-  </head>
-
-  <body>
-    <!--
-      STEP 2: CONTENITORE PRINCIPALE
-      wrap controlla la larghezza massima.
-    -->
-    <main class="wrap">
-      <!--
-        STEP 3: SEZIONE CALCOLATRICE
-      -->
-      <section class="calc" aria-label="Calcolatrice">
-        <!--
-          STEP 3.1: TOPBAR
-          Metto un piccolo header con titolo e bottone tema.
-          aria-pressed lo gestisco via JS per accessibilità.
-        -->
-        <div class="topbar">
-          <div class="title">Calcolatrice</div>
-          <button class="themeBtn" id="themeToggle" type="button" aria-pressed="false">
-            Chiaro
-          </button>
-        </div>
-
-        <!--
-          STEP 4: DISPLAY
-          prev = riga piccola (numero precedente + operatore)
-          curr = riga grande (numero corrente o risultato)
-        -->
-        <div class="display" aria-live="polite" aria-atomic="true">
-          <div class="display__prev" id="prev"></div>
-          <div class="display__curr" id="curr">0</div>
-        </div>
-
-        <!--
-          STEP 5: TASTIERA
-          id="keys" mi serve per event delegation:
-          un solo addEventListener sul contenitore.
-        -->
-        <div class="keys" id="keys">
-          <button class="key key--wide" data-clear aria-label="Cancella tutto">C</button>
-          <button class="key" data-backspace aria-label="Cancella ultimo">⌫</button>
-          <button class="key key--op" data-operator="/" aria-label="Dividi">/</button>
-
-          <button class="key" data-number="7">7</button>
-          <button class="key" data-number="8">8</button>
-          <button class="key" data-number="9">9</button>
-          <button class="key key--op" data-operator="*" aria-label="Moltiplica">*</button>
-
-          <button class="key" data-number="4">4</button>
-          <button class="key" data-number="5">5</button>
-          <button class="key" data-number="6">6</button>
-          <button class="key key--op" data-operator="-" aria-label="Sottrai">-</button>
-
-          <button class="key" data-number="1">1</button>
-          <button class="key" data-number="2">2</button>
-          <button class="key" data-number="3">3</button>
-          <button class="key key--op" data-operator="+" aria-label="Somma">+</button>
-
-          <button class="key key--wide" data-number="0">0</button>
-          <button class="key" data-decimal aria-label="Virgola decimale">.</button>
-          <button class="key key--equals" data-equals aria-label="Risultato">=</button>
-        </div>
-
-        <p class="hint">
-          Tip: puoi usare anche la tastiera (0-9, +, -, *, /, Invio, Backspace, Esc).
+<html data-theme="dark" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio | Michel Branche</title>
+<link href="style.css" rel="stylesheet"/>
+<script defer="" src="theme.js"></script>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+<div class="container nav">
+<a aria-label="Torna all'inizio" class="logo" href="#top">Michel</a>
+<div class="nav-right">
+<nav aria-label="Navigazione" class="menu">
+<a href="#projects">Progetti</a>
+<a href="#certifications">Certificazioni</a>
+<a href="examples.html">Esempi attività</a>
+<a href="#skills">Competenze</a>
+<a href="#about">Chi sono</a>
+<a href="#contact">Contatti</a>
+</nav>
+<a aria-label="Vai alla versione inglese" class="lang" href="index-en.html">EN</a>
+<button class="theme-toggle" data-theme-toggle="" type="button">Tema</button>
+</div>
+</div>
+</header>
+<!-- HERO -->
+<main class="hero" id="top">
+<div class="container hero-grid">
+<section class="hero-content">
+<span class="pill">Open to internship · 2026</span>
+<h1>Frontend Developer</h1>
+<p class="lead">
+          Creo interfacce web moderne, pulite e responsive.<br/>
+          Attualmente focalizzato su HTML, CSS e basi di JavaScript.
         </p>
-      </section>
-    </main>
-
-    <!--
-      STEP 6: SCRIPT IN FONDO
-      Così il DOM è già caricato quando lo JS cerca prev, curr, keys, themeToggle.
-    -->
-    <script src="script.js"></script>
-  </body>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#projects">Vedi progetti</a>
+<a class="btn btn-ghost" href="#contact">Contatti</a>
+</div>
+<div aria-label="Tecnologie" class="tags">
+<span class="tag">HTML5</span>
+<span class="tag">CSS3</span>
+<span class="tag">Flexbox</span>
+<span class="tag">Grid</span>
+<span class="tag">Responsive UI</span>
+<span class="tag">Git &amp; GitHub</span>
+<span class="tag tag-wide">JavaScript (ES6, DOM)</span>
+</div>
+</section>
+<aside aria-label="Foto profilo" class="hero-side">
+<div class="photo-wrap">
+<img alt="Foto di Michel" class="photo" src="assets/images/profile.jpg"/>
+</div>
+</aside>
+</div>
+</main>
+<!-- PROJECTS -->
+<section class="section section-alt" id="projects">
+<div class="container"><div class="projects-rail"><div class="rail-meta"><h2>Progetti</h2><p>Selezione di progetti front-end (HTML/CSS/JS). Demo live + codice.</p><p class="rail-hint">Scorri orizzontalmente per vedere tutti i progetti. Su desktop: Shift + rotellina.</p><a class="btn btn-ghost" href="examples.html">Esempi per attività</a></div><div aria-label="Elenco progetti scorribile" class="rail"><article class="rail-item card">
+<div class="card-image">
+<img alt="Preview Masonry Gallery" loading="lazy" src="assets/images/masonry-thumb.jpg"/>
+</div>
+<div class="card-content">
+<h3>Masonry Gallery</h3>
+<p>Layout tipo Pinterest con card riutilizzabili e micro-interazioni.</p>
+<span class="tech">HTML · CSS</span>
+<div class="card-links">
+<a href="https://michelbranche.github.io/masonry-gallery/" rel="noopener noreferrer" target="_blank">Live</a>
+<a href="https://github.com/MichelBranche/masonry-gallery" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+</div>
+</article><article class="rail-item card">
+<div class="card-image">
+<img alt="Preview Landing Page" loading="lazy" src="assets/images/landing-thumb.jpg"/>
+</div>
+<div class="card-content">
+<h3>Landing Page</h3>
+<p>Landing completa con sezioni (features, pricing, FAQ) e responsive solido.</p>
+<span class="tech">HTML · CSS</span>
+<div class="card-links">
+<a href="https://michelbranche.github.io/landing-page/" rel="noopener noreferrer" target="_blank">Live</a>
+<a href="https://github.com/MichelBranche/landing-page" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+</div>
+</article><article class="rail-item card">
+<div class="card-image">
+<img alt="Preview UI Layout" loading="lazy" src="assets/images/ui-layout-thumb.jpg"/>
+</div>
+<div class="card-content">
+<h3>UI Layout</h3>
+<p>Dashboard UI mock con JS: filtro tabella, modal e feedback “toast”.</p>
+<span class="tech">HTML · CSS · JS (DOM)</span>
+<div class="card-links">
+<a href="https://michelbranche.github.io/ui-layout/" rel="noopener noreferrer" target="_blank">Live</a>
+<a href="https://github.com/MichelBranche/ui-layout" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+</div>
+</article><article class="rail-item card">
+<div class="card-image">
+<img alt="Preview Easy Calculator" loading="lazy" src="assets/images/easy-calculator-thumb.jpg"/>
+</div>
+<div class="card-content">
+<h3>Easy Calculator</h3>
+<p>Calcolatrice minimale con supporto tastiera e tema Light/Dark con persistenza.</p>
+<span class="tech">HTML · CSS · JS (DOM)</span>
+<div class="card-links">
+<a href="https://michelbranche.github.io/Easy-Calculator/" rel="noopener noreferrer" target="_blank">Live</a>
+<a href="https://github.com/MichelBranche/Easy-Calculator" rel="noopener noreferrer" target="_blank">Code</a>
+</div>
+</div>
+</article></div></div></div>
+</section>
+<!-- BUSINESS DEMOS (NUOVA SEZIONE) -->
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+<div class="container">
+<div class="section-head">
+<h2>Certificazioni</h2>
+<p>Attestati Epicode completati durante il percorso Web Developer.</p>
+</div>
+<div aria-label="Elenco certificazioni" class="cert-grid">
+<article class="cert-card">
+<a aria-label="Apri certificato Epicode M1 in PDF" class="cert-media" href="assets/certs/epicode-m1.pdf" rel="noopener noreferrer" target="_blank">
+<img alt="Certificato Epicode M1 - VSCode, HTML5, CSS" loading="lazy" src="assets/certs/epicode-m1.webp"/>
+</a>
+<div class="cert-body">
+<h3>Epicode - Module M1</h3>
+<p class="cert-meta">VSCode · HTML5 · CSS | Rilasciato il 19/12/2025</p>
+<div class="cert-actions">
+<a href="assets/certs/epicode-m1.pdf" rel="noopener noreferrer" target="_blank">Apri PDF</a>
+</div>
+</div>
+</article>
+<article class="cert-card">
+<a aria-label="Apri certificato Epicode M2 in PDF" class="cert-media" href="assets/certs/epicode-m2.pdf" rel="noopener noreferrer" target="_blank">
+<img alt="Certificato Epicode M2 - Git, DOM, JavaScript" loading="lazy" src="assets/certs/epicode-m2.webp"/>
+</a>
+<div class="cert-body">
+<h3>Epicode - Module M2</h3>
+<p class="cert-meta">Git · DOM · JavaScript | Rilasciato il 31/01/2026</p>
+<div class="cert-actions">
+<a href="assets/certs/epicode-m2.pdf" rel="noopener noreferrer" target="_blank">Apri PDF</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- SKILLS -->
+<section class="section section-alt" id="skills">
+<div class="container">
+<div class="section-head">
+<h2>Competenze</h2>
+<p>Focus su UI pulita, responsive design e struttura ordinata.</p>
+</div>
+<div class="skills-grid">
+<div class="skill">
+<h3>Layout</h3>
+<p>Flexbox, Grid, spacing, gerarchie visive e componenti.</p>
+</div>
+<div class="skill">
+<h3>UI / Styling</h3>
+<p>Tipografia, contrasto, cards moderne, micro-interazioni.</p>
+</div>
+<div class="skill">
+<h3>JavaScript</h3>
+<p>DOM, eventi, logica, interazioni base (in progress).</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container about-grid">
+<div class="about-left">
+<h2>Chi sono</h2>
+<p class="about-sub">Breve presentazione e obiettivo.</p>
+<p class="about-text">
+          Ho 24 anni e sono uno studente frontend developer. Sto approfondendo HTML, CSS e JavaScript,
+          con attenzione particolare alla struttura, al responsive design e alla qualità del layout.
+        </p>
+<ul class="about-list">
+<li>Attenzione ai dettagli e pulizia del codice</li>
+<li>Focus su UI moderna e leggibile</li>
+<li>Obiettivo: crescita su JavaScript e React</li>
+</ul>
+</div>
+<div aria-label="Dati rapidi" class="about-right">
+<div class="facts">
+<div class="fact"><span class="fact-k">Età</span><span class="fact-v">24</span></div>
+<div class="fact"><span class="fact-k">Focus</span><span class="fact-v">HTML/CSS · UI</span></div>
+<div class="fact"><span class="fact-k">Ora</span><span class="fact-v">JavaScript (base)</span></div>
+<div class="fact"><span class="fact-k">Prossimo step</span><span class="fact-v">React</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+<div class="container">
+<div class="contact-box">
+<div>
+<h2>Contatti</h2>
+<p class="contact-sub">Se ti va, scrivimi: rispondo volentieri.</p>
+</div>
+<div class="contact-actions">
+<a class="btn btn-primary" href="mailto:michel.lavoro@gmail.com">Email</a>
+<a class="btn btn-ghost" href="https://github.com/MichelBranche">GitHub</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container footer-content">
+<p>© 2026 Michel Branche</p>
+<div class="footer-links">
+<a href="mailto:michel.lavoro@gmail.com">Email</a>
+<a href="https://github.com/MichelBranche">GitHub</a>
+</div>
+</div>
+</footer>
+</body>
 </html>
