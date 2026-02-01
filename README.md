@@ -88,4 +88,5 @@ La scelta viene salvata in `localStorage`, così al refresh rimane.
 ## Autore
 
 Michel Branche  
+
 GitHub: https://github.com/MichelBranche
